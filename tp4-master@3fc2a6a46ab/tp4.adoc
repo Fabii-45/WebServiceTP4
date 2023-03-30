@@ -1,0 +1,56 @@
+= TP4 -- Sécuriser avec des tokens JWT, et tester un Web-service
+
+== Objectifs
+
+* Sécuriser un service REST avec des tokens JWT (et un poil de OAuth2).
+* Tester un service REST.
+
+
+== Description du service REST créé précédemment (TP3)
+
+Nous repartons du service REST réalisé lors du TP3.
+
+Les sources d'une proposition de correction sont fournies, au cas où.
+
+
+=== Rappel du contexte
+
+Pour aider le suivi de projets, un professeur de web-service décide de mettre en place une application permettant aux étudiants de poser des questions :
+
+* Les professeurs peuvent répondre aux questions ouvertes (non encore répondues).
+* Les étudiants peuvent alors consulter les réponses aux questions qu'ils ont posées.
+
+
+=== Opérations proposées par l'API
+
+* *Inscrire un compte étudiant* (`email` et `password`).
+* *Poser une question*, pour un _étudiant authentifié_ (`email` et `password`).
+* *Consulter ses questions* et les réponses éventuelles, pour un _étudiant authentifié_ ; il est possible de préciser les questions que l'on souhaite consulter (via un paramètre `filtre` pouvant valoir `sansreponse` ou `avecreponse`).
+* *Réponse à une question*, pour un _enseignant authentifié_ (`email` et `password`).
+* *Consulter toutes les questions posées*, pour un _enseignant authentifié_ ; il est possible de préciser que l'on ne veut que les questions sans réponse (via un paramètre `filtre` pouvant valoir `sansreponse`).
+
+
+== Travail à réaliser
+
+. Modifiez la configuration de la sécurité du service REST, pour que l'authentification utilise des *tokens JWT* (avec un poil de OAuth2).
+. Créez une classe de *tests pour le contrôleur du service REST*. _On ne s'intéresse pas aux tests des façades du modèle_.
+
+
+=== Ressources non exhaustives
+
+* Pour la création et sécurisation d'un service REST avec Spring Boot et Spring Security :
+** Les supports du cours _Web Services_ : https://celene.univ-orleans.fr/course/view.php?id=2566
+** Le dépôt GitHub de Yohan Boichut sur la sécuration par tokens JWT avec Spring Security 6 : https://github.com/yohanboichut/jwtspringboot3
+** Internet, par exemple :
+*** https://youtu.be/1-O4i7AvFPc
+*** https://youtu.be/KYNR5js2cXE
+*** https://youtu.be/B1SUyu98HvQ
+*** https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/
+*** https://spring.io/guides/tutorials/spring-boot-oauth2/
+*** **Remarque :** Il ne s'agit là que d'exemples de ressources que l'on peut trouver sur Internet. N'hésitez pas à rechercher d'autres ressources sur la mise en place d'une authentification par tokens JWT avec Spring Security 6 (et un poil de OAuth2).
+
+* Pour la réalisation de tests d'un service REST, avec Spring Test :
+** Les supports du cours _Test & Qualité_ : https://celene.univ-orleans.fr/course/view.php?id=2556
+** Internet, par exemple :
+*** https://www.baeldung.com/spring-boot-testing
+** La classe `TpNoteApplicationTests` dans le dépôt du _sujet d'entraînement au TP noté en 2022_ : https://pdicost.univ-orleans.fr/git/projects/WSI/repos/sujet-entrainement-2022/browse — **Attention :** Le code est basé sur Spring Boot 2, Spring Security 5, et une authentification en mode _basic_. Il faudra donc l'adapter !
