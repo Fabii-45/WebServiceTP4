@@ -9,13 +9,16 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class CustomUserDetailsService implements UserDetailsService {
 
+    private PasswordEncoder passwordEncoder;
     // Injection de dépendance via le constructeur, car l'injection via @Autowired sur l'attribut est dépréciée
     private final FacadeUtilisateurs facadeUtilisateurs;
 
-    public CustomUserDetailsService(@Autowired FacadeUtilisateurs facadeUtilisateurs) {
+    public CustomUserDetailsService(PasswordEncoder passwordEncoder, @Autowired FacadeUtilisateurs facadeUtilisateurs) {
+        this.passwordEncoder = passwordEncoder;
         this.facadeUtilisateurs = facadeUtilisateurs;
     }
 

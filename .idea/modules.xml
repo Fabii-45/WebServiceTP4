@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/WebServiceTP4.iml" filepath="$PROJECT_DIR$/.idea/WebServiceTP4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tp4-master@3fc2a6a46ab/tp4-tester.iml" filepath="$PROJECT_DIR$/tp4-master@3fc2a6a46ab/tp4-tester.iml" />
+    </modules>
+  </component>
+</project>
